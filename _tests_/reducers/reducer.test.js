@@ -6,4 +6,14 @@ describe('reducer', () => {
       expect(reducer({}, { type: null })).toEqual({});
     });
 
+    test('Should add one using numberOfClicks method', () => {
+      let action;
+      action = {
+        type: 'CLICK',
+        numberOfClicks: 2
+      };
+      expect(reducer({}, action)).toEqual({
+        numberOfClicks: 3
+      });
+    });
 });

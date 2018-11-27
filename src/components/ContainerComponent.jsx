@@ -1,9 +1,10 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PresentationalComponent from './PresentationalComponent';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 class ContainerComponent extends React.Component{
+
 
   constructor(props) {
     super(props);
@@ -13,9 +14,10 @@ class ContainerComponent extends React.Component{
   }
 
   handleMutateStateFunction() {
-    const { dispatch } = this.props;
+    const { dispatch } = props;
     const action = {
-      type: 'ADD_CLICK',
+      type: 'CLICK',
+      numberOfClicks: this.props.clicks
     };
     dispatch(action);
   }
@@ -25,7 +27,7 @@ class ContainerComponent extends React.Component{
       <div>
         <PresentationalComponent
           onMutateStateFunction={this.handleMutateStateFunction}
-          clicks={this.props.numberOfClicks}
+          clicks={this.props.clicks}
         />
       </div>
     );
@@ -39,8 +41,8 @@ ContainerComponent.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    numberOfClicks: state.numberOfClicks
-  };
-};
+    clicks: state.numberOfClicks
+  }
+}
 
 export default connect(mapStateToProps)(ContainerComponent);

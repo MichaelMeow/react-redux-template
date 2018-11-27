@@ -1,8 +1,8 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 
 function PresentationalComponent(props){
+  console.log(props.clicks);
   return (
     <div>
       <div onClick={() => {props.onMutateStateFunction();}}>Click me</div>
@@ -16,4 +16,4 @@ PresentationalComponent.propTypes = {
   clicks: PropTypes.number
 };
 
-export default connect()(PresentationalComponent);
+export default PresentationalComponent;
