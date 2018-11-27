@@ -10,23 +10,14 @@ class ContainerComponent extends React.Component{
     super(props);
     this.state = {
     };
-    this.handleMutateStateFunction = this.handleMutateStateFunction.bind(this);
   }
 
-  handleMutateStateFunction() {
-    const { dispatch } = props;
-    const action = {
-      type: 'CLICK',
-      numberOfClicks: this.props.clicks
-    };
-    dispatch(action);
-  }
+
 
   render(){
     return (
       <div>
         <PresentationalComponent
-          onMutateStateFunction={this.handleMutateStateFunction}
           clicks={this.props.clicks}
         />
       </div>
